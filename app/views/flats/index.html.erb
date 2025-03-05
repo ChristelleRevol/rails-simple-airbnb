@@ -1,0 +1,19 @@
+<h1>Flats</h1>
+
+<div class="row mt-5">
+<% @flats.each do |f| %>
+<div class="col p-3 border mx-2">
+<p><%= f.name %></p>
+<p><%= f.address %></p>
+<p><%= f.description %></p>
+<p><%= f.price_per_night %>€</p>
+<p><%= f.number_of_guests %> people</p>
+<%= link_to 'more info', flat_path(f) %>
+<%= link_to 'Edit', flat_path(f) %>
+<%= link_to 'Delete', flat_path(f),
+data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+</div>
+<% end %>
+</div>
+
+<%= link_to 'Add new flat', new_flat_path %>
